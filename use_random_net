@@ -1,0 +1,23 @@
+import pandas as pd
+import torch
+import torch.nn as nn
+from torch import optim
+from torch.utils.data import Dataset, DataLoader
+from tqdm import tqdm
+import numpy as np
+
+data_tensors = torch.rand(5,10) 
+
+model = nn.Sequential()
+
+model.add_module('l1', nn.Linear(10, 5))
+model.add_module('l2', nn.Sigmoid())
+model.add_module('l3', nn.Linear(5,1))
+
+lossfunc = nn.BCEWithLogitsLoss() 
+# объявление оптимизатора
+opt = optim.Adam(model.parameters(), lr=0.001)
+
+y_predicted =  model(data_tensors)
+
+print(y_predicted)
