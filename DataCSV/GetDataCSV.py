@@ -19,11 +19,3 @@ def get_days_list(csv_path):
 
 
 CVC_PATH = r'C:\Users\mosco\PycharmProjects\Team2\DataCSV\data500.csv'
-
-#
-# print(get_days_list(CVC_PATH))
-# for i in get_one_day(CVC_PATH , 1):
-#     print(i , end= '  ')
-# for i in get_one_day(CVC_PATH , 1).get_values():
-#     print(list(map(float , i)))
-# print(get_one_day(CVC_PATH , 1))
