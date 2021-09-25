@@ -5,7 +5,7 @@ from sqlalchemy.orm import sessionmaker, scoped_session, relationship
 
 Base = declarative_base()
 
-engine = create_engine('sqlite:///db.sqlite', echo=False)
+engine = create_engine('sqlite:///../../db.sqlite', echo=False)
 
 session = scoped_session(sessionmaker(autocommit=False, autoflush=False, bind=engine))
 
@@ -17,16 +17,15 @@ class Records(Base):
 
     id = Column(Integer, primary_key=True)
     record_day = Column(Integer, nullable=False)
-    # ship_id = Column(Integer, ForeignKey('ships.name_ship'))
-    # ships = relationship("Ships", backref='records')
+    prediction = Column(Float , nullable= False)
 
 class Days(Base):
     __tablename__ = "days"
 
     id =  Column(Integer, primary_key=True)
-    day_id = Column(Integer , ForeignKey('records.record_day'))
+    day_id = Column(Integer , ForeignKey('records.id'))
     records = relationship("Records" , backref = 'days')
-    time = Column(String)
+    time = Column(Integer)
     lan = Column(Float)
     lat = Column(Float)
     speed = Column(Float)
@@ -36,7 +35,7 @@ class Days(Base):
 
 def delete_DB():
     Base.metadata.drop_all(engine)
-delete_DB()
+# delete_DB()
 
 
 
@@ -44,6 +43,3 @@ delete_DB()
 Base.metadata.create_all(bind=engine)
 # post_MFC()
 
-# def delete_DB():
-#     Base.metadata.drop_all(engine)
-# delete_DB()

@@ -1,14 +1,9 @@
 from Start_DB import Records , Days , session
-
+from AI.Plug import NN
 def get_pd_data(sheep_name: int, record_day: int, csv_path: str):
 
     pass
 
-
-def get_result() -> float:
-
-    # todo Get result from NN
-    pass
 
 
 def update_db_data(sheep_name: int, record_day: int):
