@@ -4,7 +4,7 @@ def get_pd_data(sheep_name: int, record_day: int, csv_path: str):
 
     pass
 
-
+# in one day , smph be here
 
 def update_db_data(sheep_name: int, record_day: int):
     # todo Update DB by NN and cvc file
