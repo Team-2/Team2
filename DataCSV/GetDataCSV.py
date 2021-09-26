@@ -18,4 +18,4 @@ def get_days_list(csv_path):
     return days
 
 
-CVC_PATH = r'C:\Users\mosco\PycharmProjects\Team2\DataCSV\data500.csv'
+

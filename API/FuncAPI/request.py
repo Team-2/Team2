@@ -13,21 +13,21 @@ from Security.CodeData import some_encryption, some_decryption
 ship = Blueprint('ship', __name__)
 
 
-# # Этот запрос нужен для получения координат и времени для построения графика
-# @ship.route('/ship/<int:record>', methods=['GET'])
-# def get_data(record: int):
-#     temp_lat = []
-#     temp_lan = []
-#     temp_speed = []
-#     id_r = get_id(record)
-#     temp = session.query(Days).filter(Days.day_id == id_r).all()
-#     for i in temp:
-#         temp_lan.append(some_decryption(i.lan))
-#         temp_speed.append(some_decryption(i.speed))
-#         temp_lat.append(some_decryption(i.lat))
-#     result = [temp_lan, temp_lat, temp_speed]
-#
-#     return make_response(jsonify(some_encryption(result)))
+# Этот запрос нужен для получения координат и времени для построения графика
+@ship.route('/ship/<int:record>', methods=['GET'])
+def get_data(record: int):
+    temp_lat = []
+    temp_lan = []
+    temp_speed = []
+    id_r = get_id(record)
+    temp = session.query(Days).filter(Days.day_id == id_r).all()
+    for i in temp:
+        temp_lan.append(some_decryption(i.lan))
+        temp_speed.append(some_decryption(i.speed))
+        temp_lat.append(some_decryption(i.lat))
+    result = [temp_lan, temp_lat, temp_speed]
+
+    return make_response(jsonify(some_encryption(result)))
 
 
 # Этот запрос вернет все пары (ship_name , record_name) для который параметр forecast

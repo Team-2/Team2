@@ -22,6 +22,7 @@ def get_day_lists(day_num, csv_path):
 # arr = get_day_lists(21 , CVC_PATH  )
     
 def make_some_lists(arr):
+    print(arr)
     x = list(map(lambda x: x * 1000000, arr[0]))
     print(x)
     y = list(map(lambda x: x * 1000000, arr[1]))
